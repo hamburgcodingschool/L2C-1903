@@ -12,3 +12,11 @@
 
 for i in range(0, 10):
     print(i)
+
+
+print("Give me a number")
+number = int(input("> "))
+
+for i in range(1, 11):
+    res = number * i
+    print("{} x {} = {}".format(number, i, res))
