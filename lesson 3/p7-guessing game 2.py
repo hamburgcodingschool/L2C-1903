@@ -1,19 +1,32 @@
 import random
 
 secretNumber = random.randrange(1, 101)
-print(secretNumber) # cheat to win 😝
+#print(secretNumber) # cheat to win 😝
 
 print("What's your guess?")
 userNumber = int(input("> "))
 
+tries = 6
+hasWon = True
+
 while userNumber != secretNumber:
+
     if userNumber > secretNumber:
-        print("That too high!")
+        print("That's too high!")
+    else:
+        print("That's too low!")
 
-    if userNumber < secretNumber:
-        print("That too low!")
+    tries -= 1
 
-    print("Try again")
+    if tries <= 0:
+        hasWon = False
+        break
+
+    print("Try again. You have {} try(ies) left".format(tries))
     userNumber = int(input("> "))
 
-print("YOU WON! (but you had no other option really...)")
+
+if hasWon:
+    print("YOU ARE AWESOME YOU WON!")
+else:
+    print("YOU SUCK!")
